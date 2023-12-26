@@ -10,7 +10,7 @@ use Saloon\Http\Request;
  *
  * Documentation: https://carbone.io/api-reference.html#download-rendered-reports
  */
-class RetreiveGeneratedDocumentFromRenderId extends Request
+class RetrieveGeneratedDocument extends Request
 {
     protected Method $method = Method::GET;
 
