@@ -32,10 +32,10 @@
         "saloonphp/saloon": "^3.0"
     },
     "require-dev": {
-        "larastan/larastan": "^2.0",
         "orchestra/testbench": "^7.0 || ^8.0",
         "phpstan/phpstan": "^1.0",
-        "phpunit/phpunit": "^9.0 || ^10.0"
+        "phpunit/phpunit": "^9.0 || ^10.0",
+        "tomasvotruba/type-coverage": "^0.2"
     },
     "minimum-stability": "dev",
     "autoload": {

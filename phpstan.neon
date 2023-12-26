@@ -1,5 +1,5 @@
-# includes:
-#     - ./vendor/larastan/larastan/extension.neon
+includes:
+    - vendor/tomasvotruba/type-coverage/config/extension.neon
 
 parameters:
 
@@ -7,5 +7,10 @@ parameters:
         - src
 
     level: "max"
+
+    type_coverage:
+        return_type: 100
+        param_type: 100
+        property_type: 100
 
     checkMissingIterableValueType: false
