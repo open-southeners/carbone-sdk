@@ -1,4 +1,4 @@
-Carbone PHP [![required php version](https://img.shields.io/packagist/php-v/open-southeners/carbone-sdk)](https://www.php.net/supported-versions.php) [![codecov](https://codecov.io/gh/open-southeners/carbone-sdk/branch/main/graph/badge.svg?token=codecov_badge_token)](https://codecov.io/gh/open-southeners/carbone-sdk) [![Edit on VSCode online](https://img.shields.io/badge/vscode-edit%20online-blue?logo=visualstudiocode)](https://vscode.dev/github/open-southeners/carbone-sdk)
+Carbone PHP [![required php version](https://img.shields.io/packagist/php-v/open-southeners/carbone-sdk)](https://www.php.net/supported-versions.php) [![codecov](https://codecov.io/gh/open-southeners/carbone-sdk/branch/main/graph/badge.svg?token=zi0WDnuTmb)](https://codecov.io/gh/open-southeners/carbone-sdk) [![Edit on VSCode online](https://img.shields.io/badge/vscode-edit%20online-blue?logo=visualstudiocode)](https://vscode.dev/github/open-southeners/carbone-sdk)
 ===
 
 Unofficial port of the Carbone API SDK to Saloon v3
