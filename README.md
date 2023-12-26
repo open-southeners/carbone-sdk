@@ -17,6 +17,23 @@ To make this work within a Laravel app you just need to add the following at the
 CARBONE_API_KEY='your-carbone-api-key'
 ```
 
+To customise the API version and more you can simply add `carbone` array item to the _config/services.php_:
+
+```php
+<?php
+
+return [
+
+    // rest of services.php items here...
+
+    'carbone' => [
+        'key' => env('CARBONE_API_KEY', ''),
+        'version' => '4',
+    ],
+
+];
+```
+
 ### Usage
 
 Within Laravel you've it injected into your application's container:
