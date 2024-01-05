@@ -28,8 +28,6 @@ class ServiceProviderTest extends TestCase
 
     public function testCarboneIsBoundWithCarboneInstance()
     {
-        $this->withoutExceptionHandling();
-
         $this->assertTrue($this->app->bound(Carbone::class));
         $this->assertTrue($this->app->bound('carbone'));
         $this->assertInstanceOf(Carbone::class, $this->app->get('carbone'));
