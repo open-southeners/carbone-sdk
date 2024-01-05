@@ -7,11 +7,11 @@ use OpenSoutheners\CarboneSdk\Requests\Template\DeleteTemplateFromTemplateId;
 use OpenSoutheners\CarboneSdk\Requests\Template\DownloadTemplateFromTemplateId;
 use OpenSoutheners\CarboneSdk\Requests\Template\UploadTemplate;
 use OpenSoutheners\CarboneSdk\Requests\Template\UploadTemplateAsBase64;
-use OpenSoutheners\CarboneSdk\Resource;
 use OpenSoutheners\CarboneSdk\Responses\Template\UploadTemplateResponse;
 use Saloon\Http\Response;
 
-class Template extends Resource
+// TODO: PHPStan conflicting this class with PHP's built-in resource type
+class Template extends \OpenSoutheners\CarboneSdk\Resource
 {
     /**
      * @param  string  $templateId Unique identifier of the template
