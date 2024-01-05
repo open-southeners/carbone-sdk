@@ -73,6 +73,7 @@ $templateId = $response->getTemplateId();
 
 ### Differences between official SDK and this
 
+- Full Laravel support (optionally as this supports any framework or even raw PHP)
 - Use of [Saloon v3](https://github.com/saloonphp/saloon/releases/tag/v3.0.0) not the v1 (which improves at everything typed for better IDE autocompletion support, etc)
 - **Replaced the `template()->upload()` method with `template()->base64Upload()`** so the upload method can be used to send `multipart/form-data` POST request instead of a `application/json` with all the file contents base64 encoded
 - Added `template()->exists()` to get if template with ID exists in Carbone (just a HEAD request so no content fetch at all)
