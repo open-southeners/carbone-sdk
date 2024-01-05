@@ -3,6 +3,7 @@
 namespace OpenSoutheners\CarboneSdk\Requests\Render;
 
 use OpenSoutheners\CarboneSdk\Data\Render;
+use OpenSoutheners\CarboneSdk\Responses\Render\GenerateDocumentUsingTemplateResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -18,6 +19,8 @@ class GenerateDocumentUsingTemplate extends Request implements HasBody
     use HasJsonBody;
 
     protected Method $method = Method::POST;
+
+    protected ?string $response = GenerateDocumentUsingTemplateResponse::class;
 
     public function resolveEndpoint(): string
     {

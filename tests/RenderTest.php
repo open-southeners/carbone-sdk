@@ -49,7 +49,7 @@ class RenderTest extends TestCase
         $mockClient->assertSent(Render\GenerateDocumentUsingTemplate::class);
 
         $this->assertTrue($response->ok());
-        $this->assertEquals('ai9PAfUoDV1mfbjQsGzDtjCJMTNk2N7FDFb8fTwwgnYqFdfgvcWryniPQnkUTke4', $response->json('data.renderId'));
+        $this->assertEquals('ai9PAfUoDV1mfbjQsGzDtjCJMTNk2N7FDFb8fTwwgnYqFdfgvcWryniPQnkUTke4', $response->getRenderId());
     }
 
     public function testRetrieveRender()
