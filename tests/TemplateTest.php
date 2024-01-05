@@ -42,6 +42,27 @@ class TemplateTest extends TestCase
         $this->assertEquals('qjaRALD5xIdNdwaXrbLZbuWuZfrGPPT1kdoh82mULevAv904gWNtba9kkAwU5Uef', $response->getTemplateId());
     }
 
+    public function testUploadTemplateThatFails()
+    {
+        $mockClient = new MockClient([
+            Template\UploadTemplate::class => MockResponse::make([
+                'success' => false,
+                'error' => 'Cannot store template',
+            ], 400),
+        ]);
+
+        $this->carbone->withMockClient($mockClient);
+
+        $templateContent = '';
+
+        $response = $this->carbone->template()->upload($templateContent);
+
+        $mockClient->assertSent(Template\UploadTemplate::class);
+
+        $this->assertTrue($response->failed());
+        $this->assertNull($response->getTemplateId());
+    }
+
     public function testBase64UploadTemplate()
     {
         $mockClient = new MockClient([
@@ -81,6 +102,24 @@ class TemplateTest extends TestCase
 
         $this->assertTrue($response->ok());
         $this->assertEquals(true, $response->json('success'));
+    }
+
+    public function testCheckTemplateExist()
+    {
+        $mockClient = new MockClient([
+            Template\CheckTemplateExists::class => MockResponse::make(),
+        ]);
+
+        $this->carbone->withMockClient($mockClient);
+
+        $templateId = 'qjaRALD5xIdNdwaXrbLZbuWuZfrGPPT1kdoh82mULevAv904gWNtba9kkAwU5Uef';
+
+        $response = $this->carbone->template()->exists($templateId);
+
+        $mockClient->assertSent(Template\CheckTemplateExists::class);
+
+        $this->assertTrue($response->ok());
+        $this->assertEmpty($response->json());
     }
 
     public function testDownloadTemplate()

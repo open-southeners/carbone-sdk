@@ -33,7 +33,9 @@ class ServiceProvider extends BaseServiceProvider
     {
         // The about command is only available in Laravel 9 and up so we need to check if it's available to us
         if (! class_exists(AboutCommand::class)) {
+            // @codeCoverageIgnoreStart
             return;
+            // @codeCoverageIgnoreEnd
         }
 
         AboutCommand::add('Integrations', [
