@@ -12,6 +12,14 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot(): void
     {
+        $this->registerAboutCommandInfo();
+    }
+
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
         $this->app->bind(Carbone::class, function (): Carbone {
             /** @var string $key */
             $key = config('services.carbone.key', env('CARBONE_API_KEY', ''));
@@ -22,8 +30,6 @@ class ServiceProvider extends BaseServiceProvider
         });
 
         $this->app->alias(Carbone::class, 'carbone');
-
-        $this->registerAboutCommandInfo();
     }
 
     /**
@@ -39,7 +45,7 @@ class ServiceProvider extends BaseServiceProvider
         }
 
         AboutCommand::add('Integrations', [
-            'Carbone' => config('services.carbone.key', env('CARBONE_API_KEY', '')) ? '' : '',
+            'Carbone' => config('services.carbone.key', env('CARBONE_API_KEY', '')) ? '<fg=green;options=bold>YES</>' : '<fg=yellow;options=bold>NO</>',
         ]);
     }
 }
