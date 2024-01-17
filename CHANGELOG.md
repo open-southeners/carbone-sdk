@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [1.1.1] - 2024-01-17
+
+### Fixed
+
+- ServiceProvider not registering carbone properly on Laravel apps
+
 ## [1.1.0] - 2024-01-05
 
 ### Changed
