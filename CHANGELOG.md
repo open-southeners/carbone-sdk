@@ -6,6 +6,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [1.2.0] - 2024-03-21
+
+### Added
+
+- Methods `getFileName`, `getFileExtension` & `getFileMimeType` methods on the template download response
+- Laravel 11 support
+
 ## [1.1.1] - 2024-01-17
 
 ### Fixed
