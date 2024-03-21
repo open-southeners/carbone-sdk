@@ -127,7 +127,10 @@ class TemplateTest extends TestCase
         $content = file_get_contents(__DIR__.'/fixtures/my_template.xlsx');
 
         $mockClient = new MockClient([
-            Template\DownloadTemplateFromTemplateId::class => MockResponse::make($content),
+            Template\DownloadTemplateFromTemplateId::class => MockResponse::make($content, 200, [
+                'content-type' => 'application/vnd.ms-excel',
+                'content-disposition' => 'filename="qjaRALD5xIdNdwaXrbLZbuWuZfrGPPT1kdoh82mULevAv904gWNtba9kkAwU5Uef.xlsx"',
+            ]),
         ]);
 
         $this->carbone->withMockClient($mockClient);
@@ -140,5 +143,11 @@ class TemplateTest extends TestCase
 
         $this->assertTrue($response->ok());
         $this->assertEquals($content, $response->body());
+        $this->assertEquals(
+            'qjaRALD5xIdNdwaXrbLZbuWuZfrGPPT1kdoh82mULevAv904gWNtba9kkAwU5Uef.xlsx',
+            $response->getFileName()
+        );
+        $this->assertEquals('xlsx', $response->getFileExtension());
+        $this->assertEquals('application/vnd.ms-excel', $response->getFileMimeType());
     }
 }

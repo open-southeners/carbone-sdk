@@ -7,6 +7,7 @@ use OpenSoutheners\CarboneSdk\Requests\Template\DeleteTemplateFromTemplateId;
 use OpenSoutheners\CarboneSdk\Requests\Template\DownloadTemplateFromTemplateId;
 use OpenSoutheners\CarboneSdk\Requests\Template\UploadTemplate;
 use OpenSoutheners\CarboneSdk\Requests\Template\UploadTemplateAsBase64;
+use OpenSoutheners\CarboneSdk\Responses\Template\DownloadTemplateResponse;
 use OpenSoutheners\CarboneSdk\Responses\Template\UploadTemplateResponse;
 use Saloon\Http\Response;
 
@@ -46,9 +47,12 @@ class Template extends \OpenSoutheners\CarboneSdk\Resource
     /**
      * @param  string  $templateId Unique identifier of the template
      */
-    public function download(string $templateId): Response
+    public function download(string $templateId): DownloadTemplateResponse
     {
-        return $this->connector->send(new DownloadTemplateFromTemplateId($templateId));
+        /** @var \OpenSoutheners\CarboneSdk\Responses\Template\DownloadTemplateResponse $response */
+        $response = $this->connector->send(new DownloadTemplateFromTemplateId($templateId));
+
+        return $response;
     }
 
     /**

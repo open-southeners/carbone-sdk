@@ -2,6 +2,7 @@
 
 namespace OpenSoutheners\CarboneSdk\Requests\Template;
 
+use OpenSoutheners\CarboneSdk\Responses\Template\DownloadTemplateResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,6 +14,8 @@ use Saloon\Http\Request;
 class DownloadTemplateFromTemplateId extends Request
 {
     protected Method $method = Method::GET;
+
+    protected ?string $response = DownloadTemplateResponse::class;
 
     public function resolveEndpoint(): string
     {
