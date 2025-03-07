@@ -5,7 +5,7 @@ namespace OpenSoutheners\CarboneSdk;
 use OpenSoutheners\CarboneSdk\Resource\Render;
 use OpenSoutheners\CarboneSdk\Resource\Status;
 use OpenSoutheners\CarboneSdk\Resource\Template;
-use Saloon\Http\Auth\HeaderAuthenticator;
+use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
 
 /**
@@ -32,9 +32,9 @@ class Carbone extends Connector
         //
     }
 
-    protected function defaultAuth(): HeaderAuthenticator
+    protected function defaultAuth(): TokenAuthenticator
     {
-        return new HeaderAuthenticator("Bearer {$this->token}");
+        return new TokenAuthenticator($this->token);
     }
 
     protected function defaultHeaders(): array
