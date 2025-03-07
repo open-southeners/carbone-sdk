@@ -6,6 +6,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [2.0.0] - 2025-03-07
+
+### Removed
+
+- PHP 8.1 support (adding support to Laravel 12)
+- `template()->exists()` method as endpoint doesn't accept `HEAD` anymore
+
 ## [1.2.0] - 2024-03-21
 
 ### Added
