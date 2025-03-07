@@ -15,14 +15,6 @@ use Saloon\Http\Response;
 class Template extends \OpenSoutheners\CarboneSdk\Resource
 {
     /**
-     * @param  string  $templateId Unique identifier of the template
-     */
-    public function exists(string $templateId): Response
-    {
-        return $this->connector->send(new CheckTemplateExists($templateId));
-    }
-
-    /**
      * @param  resource|string|\Psr\Http\Message\StreamInterface  $template Path or stream of the file to upload as template
      */
     public function upload(mixed $template): UploadTemplateResponse

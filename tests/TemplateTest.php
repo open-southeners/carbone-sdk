@@ -104,24 +104,6 @@ class TemplateTest extends TestCase
         $this->assertEquals(true, $response->json('success'));
     }
 
-    public function testCheckTemplateExist()
-    {
-        $mockClient = new MockClient([
-            Template\CheckTemplateExists::class => MockResponse::make(),
-        ]);
-
-        $this->carbone->withMockClient($mockClient);
-
-        $templateId = 'qjaRALD5xIdNdwaXrbLZbuWuZfrGPPT1kdoh82mULevAv904gWNtba9kkAwU5Uef';
-
-        $response = $this->carbone->template()->exists($templateId);
-
-        $mockClient->assertSent(Template\CheckTemplateExists::class);
-
-        $this->assertTrue($response->ok());
-        $this->assertEmpty($response->json());
-    }
-
     public function testDownloadTemplate()
     {
         $content = file_get_contents(__DIR__.'/fixtures/my_template.xlsx');
