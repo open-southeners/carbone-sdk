@@ -27,6 +27,9 @@ class GenerateDocumentUsingTemplate extends Request implements HasBody
         return "/render/{$this->templateId}";
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return $this->data->toArray();
