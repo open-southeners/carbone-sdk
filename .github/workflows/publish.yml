@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: 🏗 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -24,7 +24,7 @@ jobs:
         run: |
           raw=$(git branch -r --contains ${{ github.ref }})
           branch="$(echo ${raw//origin\//} | tr -d '\n')"
-          echo "{name}=branch" >> $GITHUB_OUTPUT
+          echo "branch=$branch" >> $GITHUB_OUTPUT
           echo "Branches where this tag exists : $branch."
 
   build:
@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: 🏗 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 🏗 Get release info
         id: query-release-info
@@ -47,6 +47,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           body: ${{ steps.query-release-info.outputs.release-notes }}
-          make_latest: contains(${{ needs.check.outputs.branch }}, 'main')
+          make_latest: ${{ contains(needs.check-current-branch.outputs.branch, 'main') }}
           # prerelease: true
           # files: '*.vsix'
