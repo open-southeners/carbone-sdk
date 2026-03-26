@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-03-26
+
+### Fixed
+
+- Security vulnerabilities in `saloonphp/saloon` v3 by upgrading to v4
+
 ## [2.0.0] - 2025-03-07
 
 ### Removed
